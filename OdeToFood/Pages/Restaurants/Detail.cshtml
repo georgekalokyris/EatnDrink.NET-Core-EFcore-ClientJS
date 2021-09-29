@@ -1,0 +1,26 @@
+﻿@page "{restaurantId:int}"
+@model OdeToFood.Pages.Restaurants.DetailModel
+@{
+}
+<style>
+    .mabat{
+        outline:groove;
+    }
+</style>
+
+
+<h2> @Model.Restaurant.Name</h2>
+<div>
+    Id: @Model.Restaurant.Id
+</div>
+<div>
+    Location: @Model.Restaurant.Location
+</div>
+<div>
+    Cuisine: @Model.Restaurant.Cuisine
+</div>
+
+
+<hr />
+
+<a asp-page="./List" class="btn btn-default mabat">All Restaurants</a>
