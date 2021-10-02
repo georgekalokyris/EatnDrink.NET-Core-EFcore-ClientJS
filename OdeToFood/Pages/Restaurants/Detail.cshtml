@@ -2,11 +2,12 @@
 @model OdeToFood.Pages.Restaurants.DetailModel
 @{
 }
-<style>
-    .mabat{
-        outline:groove;
-    }
-</style>
+
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
 
 
 <h2> @Model.Restaurant.Name</h2>
@@ -23,4 +24,4 @@
 
 <hr />
 
-<a asp-page="./List" class="btn btn-default mabat">All Restaurants</a>
+<a asp-page="./List" class="btn btn-info">All Restaurants</a>

@@ -13,6 +13,7 @@ namespace OdeToFood.Pages.Restaurants
     public class EditModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
+
         private readonly IHtmlHelper htmlHelper;
         
         [BindProperty]
@@ -25,11 +26,18 @@ namespace OdeToFood.Pages.Restaurants
             this.restaurantData = restaurantData;
             this.htmlHelper = htmlHelper;
         }
-        public ActionResult OnGet(int restaurantId)
+        public ActionResult OnGet(int? restaurantId)
         {
-            Restaurant = restaurantData.GetById(restaurantId);
             Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
-            if(Restaurant == null)
+            if (restaurantId.HasValue)
+            {
+                Restaurant = restaurantData.GetById(restaurantId.Value);
+            }
+            else
+            {
+                Restaurant = new Restaurant();
+            }
+            if (Restaurant == null)
             {
                 return RedirectToPage("./NotFound");
             }
@@ -38,9 +46,25 @@ namespace OdeToFood.Pages.Restaurants
 
         public IActionResult OnPost()
         {
-            Restaurant = restaurantData.Update(Restaurant);
+            if (!ModelState.IsValid)
+            {
+                //Resolves the issue with the empty list on Post
+                Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
+                return Page();
+            }
+
+            if(Restaurant.Id > 0)
+            {
+                restaurantData.Update(Restaurant);
+                TempData["Message"] = "Restaurant Saved!";
+            }
+            else
+            {
+                restaurantData.Add(Restaurant);
+                TempData["Message"] = "Restaurant Created!";
+            }
             restaurantData.Commit();
-            return Page();
+            return RedirectToPage("./Detail", new { restaurantId = Restaurant.Id });
         }
     }
 }
