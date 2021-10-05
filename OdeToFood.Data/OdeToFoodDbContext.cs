@@ -17,17 +17,6 @@ namespace OdeToFood.Data
 
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=OdeToFood;Integrated Security=true;Trusted_Connection=True;");
-        //}
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-
-        //}
-
-
         public DbSet<Restaurant> Restaurants { get; set; }
 
     }
