@@ -20,8 +20,7 @@ namespace OdeToFood.Pages.Restaurants
 
         [BindProperty(SupportsGet =true)]
         public string SearchTerm { get; set; }
-        public ListModel(IConfiguration config,
-                         IRestaurantData restaurantData)
+        public ListModel(IConfiguration config, IRestaurantData restaurantData)
         {
             this.config = config;
             this.restaurantData = restaurantData;
