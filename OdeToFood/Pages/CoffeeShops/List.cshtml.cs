@@ -17,18 +17,22 @@ namespace OdeToFood.Pages.CoffeeShops
 
         private readonly IConfiguration configuration;
         private readonly ICafeData cafeData;
+        
+        [BindProperty(SupportsGet =true)] //This is telling ASP.NET Core fr when instantiating this class and it's getting ready to execute this method to look for something called SearchTerm on the OnGet  
+        public string SearchTerm { get; set; }
         public ListModel(IConfiguration configuration, ICafeData cafeData)
         {
             this.configuration = configuration;
             this.cafeData = cafeData;
-        }        
+        }
         
         public void OnGet()
         {
-
-            //Message = "Hey";
-            Message = configuration["Message"];
-            Cafes = cafeData.GetAll();
+            //SearchTerm = searchTerm; Alternative way of searchTerm binding
+            //HttpContext.Request.QueryString Alternative way of model binding
+            Message = "Check";
+            Message = configuration["Message"]; //The value of the Message will come out of the appsettings.json
+            Cafes = cafeData.GetCafesByName(SearchTerm);
         }
     }
 }

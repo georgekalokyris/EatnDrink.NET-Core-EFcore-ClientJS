@@ -3,6 +3,6 @@
     public enum CoffeeShopType
     {
          Takeaway,
-         Regular
+         SitIn
     }
 }

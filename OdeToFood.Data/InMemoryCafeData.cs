@@ -11,15 +11,26 @@ namespace OdeToFood.Data
         {
             Cafes = new List<Cafe>()
            {
-               new Cafe{Id = 1, Name = "Starbucks", Location = "Edinburgh", Type = CoffeeShopType.Regular},
+               new Cafe{Id = 1, Name = "Starbucks", Location = "Edinburgh", Type = CoffeeShopType.SitIn},
+
                new Cafe{Id = 2, Name = "Costa", Location = "Glasgow", Type = CoffeeShopType.Takeaway}
            };
         }
-        public IEnumerable<Cafe> GetAll()
+      
+
+        public IEnumerable<Cafe> GetCafesByName(string name)
         {
             return from c in Cafes
+                   where string.IsNullOrEmpty(name) || c.Name.StartsWith(name)
                    orderby c.Name
-                   select c; 
+                   select c;
+        }
+
+        public Cafe GetCafeById(int cafeid)
+        {
+            return from c in Cafes
+                   where c.Id == cafeid
+                   select c;
         }
     }
 

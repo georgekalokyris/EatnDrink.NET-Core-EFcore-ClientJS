@@ -8,7 +8,7 @@ namespace OdeToFood.Data
 {
     public interface ICafeData
     {
-        IEnumerable<Cafe> GetAll();
+        IEnumerable<Cafe> GetCafesByName(string name);
     }
 
 }

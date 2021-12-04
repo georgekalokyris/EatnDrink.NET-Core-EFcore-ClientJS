@@ -1,0 +1,18 @@
+﻿@page
+@model OdeToFood.Pages.CoffeeShops.DetailModel
+
+
+<h2>@Model.Cafe.Name</h2>
+
+<div>
+    Id: @Model.Cafe.Id
+</div>
+<div>
+    Location: @Model.Cafe.Location
+</div>
+
+<div>
+    Type: @Model.Cafe.Type
+</div>
+<hr />
+<a asp-page="./List">All Cafes</a>

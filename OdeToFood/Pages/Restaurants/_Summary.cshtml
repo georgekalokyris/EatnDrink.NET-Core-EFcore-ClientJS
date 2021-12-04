@@ -1,7 +1,7 @@
 ﻿@using OdeToFood.Core 
 @model Restaurant
 
-<div class="card">
+@*<div class="card">
     <div class="card-header">
         <h3>@Model.Name</h3>
     </div>
@@ -20,4 +20,22 @@
             Delete
         </a>
     </div>
-</div>
+</div>*@
+
+
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Location</td>
+            <td>@Model.Name</td>
+            <td>
+                <a class="btn btn-sm btn-dark btn-outline-info" asp-page="./Detail" asp-route-restaurantId="@Model.Id">
+                    Details
+                </a>
+                <a class="btn btn-sm btn-info btn-outline-dark" asp-page="./Edit" asp-route-restaurantId="@Model.Id">
+                    Edit
+                </a>
+                <a class="btn btn-sm btn-outline-danger" asp-page="./Delete" asp-route-restaurantId="@Model.Id">
+                    Delete
+                </a>
+            </td>
+        </tr>

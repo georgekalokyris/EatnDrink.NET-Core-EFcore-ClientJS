@@ -25,10 +25,24 @@
 
 <a asp-page="./Edit" class="btn btn-block btn-outline-success">Add new</a>
 
-@foreach (var restaurant in Model.Restaurants)
-{
-    <partial name="_Summary" model="restaurant" />
-}
+<div>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cuisine</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var restaurant in Model.Restaurants)
+        {
+            <partial name="_Summary" model="restaurant" />
+        }
+
+    </table>
+
+</div>
+
 
 
 @section footer{
