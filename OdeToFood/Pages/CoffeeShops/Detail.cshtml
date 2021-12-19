@@ -1,5 +1,7 @@
-﻿@page
+﻿@page "{cafeId:int}"
 @model OdeToFood.Pages.CoffeeShops.DetailModel
+
+
 
 
 <h2>@Model.Cafe.Name</h2>
@@ -14,5 +16,6 @@
 <div>
     Type: @Model.Cafe.Type
 </div>
+
 <hr />
 <a asp-page="./List">All Cafes</a>
