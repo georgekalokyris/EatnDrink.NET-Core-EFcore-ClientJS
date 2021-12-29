@@ -1,0 +1,29 @@
+﻿@page "{cafeId:int?}"
+@model OdeToFood.Pages.CoffeeShops.EditModel
+
+<h2>Editing @Model.Cafe.Name</h2>
+
+
+<form method="post">
+    <input type="hidden" asp-for="Cafe.Id" />
+    <div class="form-group">
+        <label asp-for="Cafe.Name"></label>
+        <input asp-for="Cafe.Name" class="form-control">
+        <span class="text-danger" asp-validation-for="Cafe.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cafe.Location"></label>
+        <input asp-for="Cafe.Location" class="form-control">
+        <span class="text-danger" asp-validation-for="Cafe.Location"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Cafe.Type"></label>
+        <select class="form-control" asp-for="Cafe.Type" asp-items="Model.cafeTypes">
+        </select>
+        <span class="text-danger" asp-validation-for="Cafe.Type"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

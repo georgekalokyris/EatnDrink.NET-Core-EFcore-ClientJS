@@ -13,6 +13,9 @@ namespace OdeToFood.Pages.CoffeeShops
     {
         public Cafe Cafe { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
+
         public readonly ICafeData cafeData;
         public DetailModel(ICafeData cafeData)
         {

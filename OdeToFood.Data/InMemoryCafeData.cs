@@ -29,7 +29,31 @@ namespace OdeToFood.Data
                    orderby c.Name
                    select c;
         }
+        
+        public Cafe Update(Cafe updatedCafe)
+        {
+            var cafe = Cafes.SingleOrDefault(x => x.Id == updatedCafe.Id);
+            if (cafe != null)
+            {
+                cafe.Name = updatedCafe.Name;
+                cafe.Location = updatedCafe.Location;
+                cafe.Type = updatedCafe.Type;
+            }
+            return cafe;
 
+        }
+
+        public int Commit()
+        {
+            return 0;
+        }
+
+        public Cafe Add(Cafe newCafe)
+        {
+            Cafes.Add(newCafe);
+            newCafe.Id = Cafes.Max(x => x.Id) + 1;
+            return newCafe;
+        }
     }
 
 }

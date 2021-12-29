@@ -2,6 +2,10 @@
 @model OdeToFood.Pages.CoffeeShops.DetailModel
 
 
+@if(Model.Message != null)
+{
+<div class="alert alert-success text-center font-weight-bold">@Model.Message</div>
+}
 
 
 <h2>@Model.Cafe.Name</h2>
@@ -16,6 +20,8 @@
 <div>
     Type: @Model.Cafe.Type
 </div>
+
+
 
 <hr />
 <a asp-page="./List">All Cafes</a>
