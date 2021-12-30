@@ -16,9 +16,11 @@ namespace OdeToFood.Data
 
 
         }
-
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<Cafe> Cafes { get; set; }
 
-        public DbSet<Cafe> Cafes { get; set; } 
+        /* To create a neew migration the startup project will need to be specified like this :
+         * dotnet ef migrations add DeletedAndCreatedwithCafes -s ..\OdeToFood\OdeToFood.csproj
+         */
     }
 }

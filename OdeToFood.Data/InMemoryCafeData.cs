@@ -54,6 +54,18 @@ namespace OdeToFood.Data
             newCafe.Id = Cafes.Max(x => x.Id) + 1;
             return newCafe;
         }
+
+        public Cafe Delete(int id)
+        {
+            Cafe cafe = Cafes.FirstOrDefault(x => x.Id == id);
+
+            if(cafe != null)
+            {
+                Cafes.Remove(cafe);
+            }
+
+            return cafe;
+        }
     }
 
 }

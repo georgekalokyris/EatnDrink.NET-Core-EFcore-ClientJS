@@ -1,5 +1,4 @@
 ﻿using OdeToFood.Core;
-using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +14,8 @@ namespace OdeToFood.Data
         Cafe Update(Cafe updatedCafe);
 
         Cafe Add(Cafe newCafe);
+
+        Cafe Delete(int id);
         int Commit();
     }
-
 }
