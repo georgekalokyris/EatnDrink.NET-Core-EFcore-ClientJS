@@ -1,0 +1,14 @@
+﻿@page "{cafeId}"
+@model OdeToFood.Pages.CoffeeShops.DeleteModel
+@{
+} 
+
+<h2>Delete Page</h2>
+
+<div class="alert alert-danger font-weight-bold text-center">
+    Are you sure you want to delete @Model.cafe.Name Cafe (@Model.cafe.Location);
+</div>
+<form method="post" style="text-align:center">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="List" class="btn btn-info">Return to all Cafes</a>
+</form>

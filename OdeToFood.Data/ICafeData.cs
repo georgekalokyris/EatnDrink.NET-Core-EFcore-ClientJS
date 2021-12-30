@@ -16,6 +16,7 @@ namespace OdeToFood.Data
         Cafe Add(Cafe newCafe);
 
         Cafe Delete(int id);
+        int GetCountCafes();
         int Commit();
     }
 }

@@ -1,0 +1,43 @@
+﻿@using OdeToFood.Core
+@model Cafe
+
+@* Card view which needs TLC - cards fall on the footer probably need some CSS
+        <div class="card">
+        <div class="card-header">
+            <h3>@Model.Name</h3>
+        </div>
+        <div class="card-body">
+            <span>Location: @Model.Location</span>
+            <span>Location: @Model.Type</span>
+        </div>
+        <div class="card-footer">
+            <a asp-page="./Detail" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-primary">
+                Details
+            </a>
+            <a asp-page="./Edit" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-info">
+                Edit
+            </a>
+            <a asp-page="./Delete" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-danger">
+                Delete
+            </a>
+        </div>
+    </div>
+
+    */*@
+
+        <tr>
+            <td>@Model.Name</td>
+            <td>@Model.Location</td>
+            <td>@Model.Type</td>
+            <td>
+                <a asp-page="./Detail" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-primary">
+                    Details
+                </a>
+                <a asp-page="./Edit" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-info">
+                    Edit
+                </a>
+                <a asp-page="./Delete" asp-route-cafeId="@Model.Id" class="btn btn-sm btn-outline-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>

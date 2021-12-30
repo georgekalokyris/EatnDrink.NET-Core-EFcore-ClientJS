@@ -43,11 +43,17 @@
 
    
     <br />
-    <footer class="border-top footer text-muted">
+
+    <footer class="border-top text-muted">
         <div class="container">
+            <br />
+
+            <vc:cafe-count></vc:cafe-count>
+        
             <vc:restaurant-count></vc:restaurant-count>
+
             @RenderSection("footer", required: false)
-            <img src="~/EatNDrinkLogo.png" width="250" height="250" class="mx-auto d-block "  />
+            <img src="~/EatNDrinkLogo.png" width="250" height="250" class="mx-auto d-block " />
             @*&copy; 2021 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>*@
         </div>
     </footer>

@@ -49,6 +49,11 @@ namespace OdeToFood.Data
             return query;
         }
 
+        public int GetCountCafes()
+        {
+            return db.Cafes.Count();
+        }
+
         public Cafe Update(Cafe updatedCafe)
         {
             var entity = db.Cafes.Attach(updatedCafe);

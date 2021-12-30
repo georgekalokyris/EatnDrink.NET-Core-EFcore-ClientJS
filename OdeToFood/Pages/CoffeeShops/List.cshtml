@@ -8,54 +8,38 @@
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="search" class="form-control" asp-for="SearchTerm"/>
-                <button class="btn btn-primary">
-                    Search
-                </button>
+            <input type="search" class="form-control" asp-for="SearchTerm" />
+            <button class="btn btn-primary">
+                Search
+            </button>
         </div>
     </div>
 </form>
 
 
 <a asp-page=".\Edit" class="btn btn-outline-success btn-block">Add new Cafe</a>
+
+<hr />
 <table class="table">
-    
+
     <tr>
         <th>Name</th>
         <th>Location</th>
         <th>Type</th>
         <th></th>
     </tr>
-    @foreach (var cafe in Model.Cafes)
+    @foreach (var cafe in @Model.Cafes)
     {
-
-        <tr>
-            <td>@cafe.Name</td>
-            <td>@cafe.Location</td>
-            <td>@cafe.Type</td>
-            <td>
-                <a asp-page="./Detail" asp-route-cafeId="@cafe.Id" class="btn btn-sm btn-outline-primary">
-                    Details
-                </a>
-                <a asp-page="./Edit" asp-route-cafeId="@cafe.Id" class="btn btn-sm btn-info btn-outline-dark">
-                    Edit
-                </a>
-                <a asp-page="./Delete" asp-route-cafeId="@cafe.Id" class="btn btn-sm btn-outline-danger">
-                    Delete
-                </a>
-            </td>
-        </tr>
+    <partial name="_Summary" model="cafe" />
     }
 </table>
 
 
+<br />
 
 
-
-
-
-
-
-@Model.Message
-
-
+@*@section footer{
+<div>
+    @Model.Message
+</div>
+}*@
