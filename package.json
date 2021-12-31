@@ -1,0 +1,25 @@
+{
+  "name": "odetofood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap-icons": "^1.5.0",
+    "datatables.net-bs": "^1.11.3",
+    "datatables.net-bs4": "^1.11.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgekalokyris/EatnDrink.NET-Core-EFcore-ClientJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/georgekalokyris/EatnDrink.NET-Core-EFcore-ClientJS/issues"
+  },
+  "homepage": "https://github.com/georgekalokyris/EatnDrink.NET-Core-EFcore-ClientJS#readme"
+}

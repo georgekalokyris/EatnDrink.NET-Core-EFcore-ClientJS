@@ -51,7 +51,7 @@ namespace OdeToFood
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            //app.UseNodeModules(env); Not sure if this is used in .net 5
             app.UseRouting();
 
             app.UseAuthorization();
@@ -60,6 +60,9 @@ namespace OdeToFood
             {
                 endpoints.MapRazorPages();
             });
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); }); //THIS WAS NECESSARY FOR THE ENDPOINDS TO WORK
+
         }
     }
 }

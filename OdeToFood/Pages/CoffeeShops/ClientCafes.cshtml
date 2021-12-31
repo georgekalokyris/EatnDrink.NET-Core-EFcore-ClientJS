@@ -4,17 +4,41 @@
 }
 
 
+<table class="table" id="restaurants">
 
 
-@section Scripts{ 
-<script>
-    $(function () {
-        $.ajax("/api/coffeeshops/", { method: "get" })
-            .then(function (response) {
-                console.dir(response);
-        })
-    });
+</table>
+
+@section Scripts{
+    <!--<environment include="Development">-->
+        @* local path here of datatables.net installed via npm (Integrating client-side js and css) *@
+    <!--</environment>-->
+    @*<environment exclude="Development">
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
+            <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
+        </environment>*@
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
+
+    <script>
+
+        var Cafetypes = ["None", "Sit In", "Takeaway"]
+
+        $(function () {
+            $.ajax("/api/cafe/", { method: "get" })
+                .then(function (response) {
+                    $("#restaurants").dataTable({
+                        data: response,
+                        columns: [
+                            { "data": "name"     },
+                            { "data": "location" },
+                            { "data": "type", "render": function (data) { return Cafetypes[data]; } }
+                        ]
+                    });
+                })
+        });
 
 
-</script>
+    </script>
 }
